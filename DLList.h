@@ -52,13 +52,13 @@ namespace dl
 		void remove(T data);
 
 		iterator begin()	 											{ return iterator(head); }
-		iterator end()													{ return iterator(tail->next); }
+		iterator end()													{ return iterator(nullptr); }
 
 		const_iterator begin() const									{ return const_iterator(head); }
-		const_iterator end() const										{ return const_iterator(tail->next); }
+		const_iterator end() const										{ return const_iterator(nullptr); }
 
-		NodePtr<T> getHeadRef()											{ return head; }
-		NodePtr<T> getTailRef()											{ return tail; }
+		NodePtr<T> getHeadRef()											{ if(!head){ return head;} return nullptr; }
+		NodePtr<T> getTailRef()											{ if(!tail){ return tail;} return nullptr; }
 		
 	};
 
@@ -221,6 +221,7 @@ namespace dl
 			}
 		}
 	}
+
 
 
 
